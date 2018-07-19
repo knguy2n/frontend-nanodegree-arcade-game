@@ -26,14 +26,56 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Hero {
     constructor() {
-        this.x = 10;
-        this.y = 100;
+        
+        this.step = 101;
+        this.jump = 83;
         this.sprite = 'images/char-boy.png';
+        this.startX = this.step * 0;
+        this.startY = this.jump * 5;
+        this.x = this.startX;
+        this.y = this.startY;
     }
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
+
+    //update position
+
+    //handle input
+
+    /**
+    *
+    * @param {string} input
+    *
+    */
+
+
+
+    handleInput(input) {
+        switch(input) {
+            case 'left':
+                if (this.x > 0) {
+                    this.x -= this.step;    
+                }
+                break;
+            case 'right':
+                if (this.x < (this.step * 4)) {
+                 this.x += this.step;
+                }
+                break;
+            case 'up':
+                if (this.y > 0){
+                this.y -= this.jump;                    
+                }
+                break;
+            case 'down':
+                if (this.y < (this.jump *5)) {
+                    this.y += this.jump;
+                }                
+                break;
+        }
+    }
 };
 
 const player = new Hero();
@@ -58,5 +100,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    //player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[e.keyCode]);
 });
