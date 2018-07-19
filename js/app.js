@@ -22,8 +22,22 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
+class Hero {
+    constructor() {
+        this.x = 10;
+        this.y = 10;
+        this.sprite = 'images/char-horn-girl.png'
+    }
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+};
+
+const player = new Hero();
+
 // This class requires an update(), render() and
 // a handleInput() method.
+
 
 
 // Now instantiate your objects.
