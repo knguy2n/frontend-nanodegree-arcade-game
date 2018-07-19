@@ -21,22 +21,24 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
+// Now write your own player class DONE
+// This class requires an update(), render() and
+// a handleInput() method.
 class Hero {
     constructor() {
         this.x = 10;
-        this.y = 10;
-        this.sprite = 'images/char-horn-girl.png'
+        this.y = 100;
+        this.sprite = 'images/char-boy.png';
     }
+
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+    };
 };
 
 const player = new Hero();
 
-// This class requires an update(), render() and
-// a handleInput() method.
+
 
 
 
@@ -56,5 +58,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    //player.handleInput(allowedKeys[e.keyCode]);
 });
