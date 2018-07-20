@@ -2,8 +2,8 @@
 var Enemy = function() {
 	this.step = 101;
     this.jump = 83;
-	this.startX = this.step*1;
-	this.startY = this.jump*2;
+	this.startX = this.step*0;
+	this.startY = (this.jump*2 - 25);
 	this.sprite = 'images/enemy-bug.png';
 	this.x = this.startX;
 	this.y = this.startY;
@@ -18,9 +18,13 @@ var Enemy = function() {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
 
-	if (this.x < (this.step*6)){
+	if (this.x < (this.step*6)) {
 		this.x += 300 * dt;
 	}
+		else if (this.x > (this.step*5)) {
+			this.x = (this.step * -1);
+		}
+	
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -41,7 +45,7 @@ class Hero {
         this.jump = 83;
         this.sprite = 'images/char-boy.png';
         this.startX = this.step * 0;
-        this.startY = this.jump * 5;
+        this.startY = (this.jump * 5 - 25) ;
         this.x = this.startX;
         this.y = this.startY;
     }
