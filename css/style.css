@@ -9,9 +9,21 @@ body {
 
 .modal-bg {
 	width: 200px;
-	height: 200px;
+	height: 100px;
+	background: white;
+	border-color: black;
+	border-radius: 1px;
 
-	margin: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
 
-	background: grey;
+.modal-button {
+	position: absolute;
+	left: 50%;
+	top: 70%;
+	transform: translate(-50%, -50%);
+
 }

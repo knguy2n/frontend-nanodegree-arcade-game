@@ -108,7 +108,7 @@ class Hero {
                 }
                 break;
             case 'down':
-                if (this.y < (this.jump*5)) {
+                if (this.y < (this.jump*4)) {
                     this.y += this.jump;
                 }                
                 break;
