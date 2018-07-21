@@ -1,12 +1,13 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(jump,pace) {
 	this.step = 101;
-    this.jump = 83;
-	this.startX = this.step*0;
+    this.jump = jump;
+	this.startX = (this.step * -1);
 	this.startY = (this.jump*2 - 25);
 	this.sprite = 'images/enemy-bug.png';
-	this.x = this.startX;
+	this.x = this.startX ;
 	this.y = this.startY;
+	this.pace = pace;
 	// The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
 
@@ -19,7 +20,7 @@ var Enemy = function() {
 Enemy.prototype.update = function(dt) {
 
 	if (this.x < (this.step*6)) {
-		this.x += 300 * dt;
+		this.x += this.pace * dt;
 	}
 		else if (this.x > (this.step*5)) {
 			this.x = (this.step * -1);
@@ -90,10 +91,19 @@ class Hero {
 
 const player = new Hero();
 
-const Bug1 = new Enemy();
+const Bug1 = new Enemy(83,350);
+const Bug2 = new Enemy(40, 200);
+const Bug3 = new Enemy(40, 500);
+const Bug4 = new Enemy(120, 450);
+
 
 let allEnemies = []
 allEnemies.push(Bug1);
+allEnemies.push(Bug2);
+allEnemies.push(Bug3);
+allEnemies.push(Bug4);
+
+
 
 
 
