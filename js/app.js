@@ -1,12 +1,12 @@
 // Enemies our player must avoid
-var Enemy = function(jump,pace) {
+var Enemy = function(y,pace) {
 	this.step = 101;
-    this.jump = jump;
+    this.jump = 83;
 	this.startX = (this.step * -1);
-	this.startY = (this.jump*2 - 25);
+	this.startY = (this.jump*2);
 	this.sprite = 'images/enemy-bug.png';
-	this.x = this.startX ;
-	this.y = this.startY;
+	this.x = this.startX;
+	this.y = y + 55;
 	this.pace = pace;
 	// The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -18,7 +18,7 @@ var Enemy = function(jump,pace) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-
+//if statement source:
 	if (this.x < (this.step*6)) {
 		this.x += this.pace * dt;
 	}
@@ -36,7 +36,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class DONE
+// Now write your own player class --- DONE
 // This class requires an update(), render() and
 // a handleInput() method.
 class Hero {
@@ -46,7 +46,7 @@ class Hero {
         this.jump = 83;
         this.sprite = 'images/char-boy.png';
         this.startX = this.step * 0;
-        this.startY = (this.jump * 5 - 25) ;
+        this.startY = (this.jump * 4 + 55) ;
         this.x = this.startX;
         this.y = this.startY;
     }
@@ -56,13 +56,22 @@ class Hero {
     };
 
     //update position
+    update() {
+    	for(let enemy of allEnemies) {
+    		if ((this.y === enemy.y) && (enemy.x + enemy.step > this.x && enemy.x <this.x + this.step))  {
+    			console.log('BOOM')
+    		}
+    	}
+    }
+    	
+
 
     //handle input
 
   
 
 
-
+//handleInput function source:
     handleInput(input) {
         switch(input) {
             case 'left':
@@ -91,10 +100,10 @@ class Hero {
 
 const player = new Hero();
 
-const Bug1 = new Enemy(83,350);
-const Bug2 = new Enemy(40, 200);
-const Bug3 = new Enemy(40, 500);
-const Bug4 = new Enemy(120, 450);
+const Bug1 = new Enemy(0,550);
+const Bug2 = new Enemy(83, 300);
+const Bug3 = new Enemy(166, 200);
+const Bug4 = new Enemy(166, 450);
 
 
 let allEnemies = []
