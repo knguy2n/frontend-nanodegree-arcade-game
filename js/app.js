@@ -89,7 +89,7 @@ class Hero {
   
 
 
-//handleInput function source:
+//handleInput function source: https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/
     handleInput(input) {
         switch(input) {
             case 'left':
