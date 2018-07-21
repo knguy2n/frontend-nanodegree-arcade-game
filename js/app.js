@@ -49,6 +49,7 @@ class Hero {
         this.startY = (this.jump * 4 + 55) ;
         this.x = this.startX;
         this.y = this.startY;
+        this.win = false;
     }
 
     render() {
@@ -58,12 +59,23 @@ class Hero {
     //update position
     update() {
     	for(let enemy of allEnemies) {
-    		if ((this.y === enemy.y) && (enemy.x + enemy.step > this.x && enemy.x <this.x + this.step))  {
-    			console.log('BOOM')
+    		if ((this.y === enemy.y) && (enemy.x + enemy.step/2 > this.x && enemy.x <this.x + (this.step/2)))  {
+    			this.reset();
     		}
     	}
+    	if(this.y === 55) {
+    		this.win = true;  	
+
     }
     	
+   
+
+}
+ reset() {
+    	this.x = this.startX;
+        this.y = this.startY;
+    }
+
 
 
     //handle input
@@ -85,7 +97,7 @@ class Hero {
                 }
                 break;
             case 'up':
-                if (this.y > 0){
+                if (this.y > 55){
                 this.y -= this.jump;                    
                 }
                 break;
@@ -100,7 +112,7 @@ class Hero {
 
 const player = new Hero();
 
-const Bug1 = new Enemy(0,550);
+const Bug1 = new Enemy(83,550);
 const Bug2 = new Enemy(83, 300);
 const Bug3 = new Enemy(166, 200);
 const Bug4 = new Enemy(166, 450);
