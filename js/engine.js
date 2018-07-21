@@ -29,9 +29,8 @@ var Engine = (function(global) {
 
     document.addEventListener('DOMContentLoaded', function() {
         const replay = document.querySelector('.modal-button');
-        const modal = document.querySelector('modal-bg');
+        const modal = document.querySelector('.modal-bg');
     replay.addEventListener('click', function() {
-        const modal = document.querySelector('modal-bg');
         modal.classList.toggle('hide');
         player.reset();
         player.win = false;
