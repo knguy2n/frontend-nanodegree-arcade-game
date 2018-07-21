@@ -1,4 +1,10 @@
 // Enemies our player must avoid
+
+
+
+
+
+
 var Enemy = function(y,pace) {
 	this.step = 101;
     this.jump = 83;
@@ -118,7 +124,7 @@ const Bug3 = new Enemy(166, 200);
 const Bug4 = new Enemy(166, 450);
 
 
-let allEnemies = []
+let allEnemies = [];
 allEnemies.push(Bug1);
 allEnemies.push(Bug2);
 allEnemies.push(Bug3);

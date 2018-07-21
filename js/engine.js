@@ -24,6 +24,24 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime,
         id;
+        
+      
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const replay = document.querySelector('.modal-button');
+        const modal = document.querySelector('modal-bg');
+    replay.addEventListener('click', function() {
+        const modal = document.querySelector('modal-bg');
+        modal.classList.toggle('hide');
+        player.reset();
+        player.win = false;
+        win.requestAnimationFrame(main);
+    })});
+
+
+
+
+
 
     canvas.width = 505;
     canvas.height = 606;
@@ -60,7 +78,9 @@ var Engine = (function(global) {
 
          if(player.win === true) {
             win.cancelAnimationFrame(id);
-            console.log('WINN!!!!')
+            console.log('WINN!!!!');
+            const modal = document.querySelector('.modal-bg');
+            modal.classList.toggle('hide');
          }
          else{
             id = win.requestAnimationFrame(main);
