@@ -22,6 +22,7 @@ When player makes it across a pop-up will allow user to reset the game
 1. Download game from this [repo](https://github.com/knguy2n/frontend-nanodegree-arcade-game).
 2. Open the index.html file in the frontend-nanodegree-arcade-game folder to run the game
 3. Player will start in the bottom left corner, the objective is to get to the row closest to the water without running into the bugs/enemies!
+4. Use arrow keys to get player across to the river
 
 
 
